@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FilterWeathersFragment">
+
+    <fragment
+        android:id="@+id/FilterWeathersFragment"
+        android:name="com.cname.weatherapp.view.FilterWeathers"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FilterWeathersFragment_to_WeatherDetailsFragment"
+            app:destination="@id/WeatherDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/WeatherDetailsFragment"
+        android:name="com.cname.weatherapp.view.WeatherDetails"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <action
+            android:id="@+id/action_WeatherDetailsFragment_to_FilterWeathersFragment"
+            app:destination="@id/FilterWeathersFragment" />
+    </fragment>
+</navigation>
