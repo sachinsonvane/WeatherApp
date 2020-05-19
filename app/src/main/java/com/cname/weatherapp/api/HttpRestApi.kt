@@ -13,7 +13,8 @@ class HttpRestApi {
 
     var CITY = "dhaka,bd"
     var API = "8118ed6ee68db2debfaaa5a44c832918"
-
+// String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
+//
     //https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API
 
     companion object {
@@ -24,13 +25,13 @@ class HttpRestApi {
         }
     }
 
-    fun httpGet(): String {
+    fun httpGet(urlStr:String): String {
 
         val inputStream: InputStream
         var result:String = ""
 
         // create URL
-        val url: URL = URL(MyApplication.getInstance().BASE_URL)
+        val url: URL = URL(urlStr)
 
         // create HttpURLConnection
         val conn: HttpURLConnection = url.openConnection() as HttpURLConnection
