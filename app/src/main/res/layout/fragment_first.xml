@@ -21,7 +21,7 @@
             <Spinner
                 android:id="@+id/citiesSpinner"
                 android:layout_width="match_parent"
-                android:spinnerMode="dialog"
+                android:spinnerMode="dropdown"
                 android:layout_height="wrap_content" />
 
             <Button

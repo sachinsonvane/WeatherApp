@@ -43,13 +43,14 @@ class WeatherDetails : Fragment() {
         mWeatherDetailsViewModel = ViewModelProvider(this)[WeathersDetailsViewModel::class.java]
         mWeatherDetailsViewModel!!.mWeathersData.observe(this, Observer { weatherList ->
 
-            var wData:WData = weatherList.get(0)
-            setData(view,wData);
+            setData(view,weatherList);
         })
 
     }
 
-    fun setData(view: View,wData:WData){
+    fun setData(view: View,list:List<WData>){
+
+        var wData:WData = list.get(0)
 
         val updatedAtText = "Updated at: " + wData.dt
         val temp: String = wData.main.temp + "°C"
@@ -71,5 +72,41 @@ class WeatherDetails : Fragment() {
         windTxt.setText(windSpeed)
         pressureTxt.setText(pressure)
         humidityTxt.setText(humidity)
+
+        /* 1 position data */
+        var wData1:WData = list.get(1)
+        val temp1: String = wData1.main.temp + "°C"
+        val weatherDescription1: String = wData1.weather.description
+        val updatedAtText1 = wData1.dt
+        secondAtTxt.setText(updatedAtText1)
+        secondStatusTxt.setText(weatherDescription1)
+        secondTtempTxt.setText(temp1)
+
+        /* 2 position data */
+        var wData2:WData = list.get(2)
+        val temp2: String = wData2.main.temp + "°C"
+        val weatherDescription2: String = wData2.weather.description
+        val updatedAtText2 = wData2.dt
+        thirdAtTxt.setText(updatedAtText2)
+        thirdStatusTxt.setText(weatherDescription2)
+        thirdTtempTxt.setText(temp2)
+
+        /* 3 position data */
+        var wData3:WData = list.get(3)
+        val temp3: String = wData3.main.temp + "°C"
+        val weatherDescription3: String = wData3.weather.description
+        val updatedAtText3 = wData3.dt
+        fourAtTxt.setText(updatedAtText3)
+        fourStatusTxt.setText(weatherDescription3)
+        fourTtempTxt.setText(temp3)
+
+        /* 4 position data */
+        var wData4:WData = list.get(4)
+        val temp4: String = wData4.main.temp + "°C"
+        val weatherDescription4: String = wData4.weather.description
+        val updatedAtText4 = wData4.dt
+        fifthAtTxt.setText(updatedAtText4)
+        fifthStatusTxt.setText(weatherDescription4)
+        fifthTtempTxt.setText(temp4)
     }
 }

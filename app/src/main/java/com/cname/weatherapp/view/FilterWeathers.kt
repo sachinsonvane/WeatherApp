@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.fragment_first.*
 class FilterWeathers : Fragment() , AdapterView.OnItemSelectedListener{
 
     var mFilterWeathersViewModel: FilterWeathersViewModel? = null
-    var mCityInfoList = arrayOf<String>();
+    var mCityInfoList = ArrayList()
     var mCities: List<City> = arrayListOf<City>()
 
     override fun onCreateView(
@@ -61,24 +61,20 @@ class FilterWeathers : Fragment() , AdapterView.OnItemSelectedListener{
         var size:Int = cList.size
         for (i in 0.. size-1) {
             var cityObj = cList.get(i)
-            mCityInfoList.set(i,cityObj.name+","+cityObj.state+","+cityObj.country)
+            mCityInfoList.add(cityObj.name+","+cityObj.state+","+cityObj.country)
         }
 
         var aa = ArrayAdapter(activity!!.baseContext, android.R.layout.simple_spinner_item, mCityInfoList)
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        with(citiesSpinner)
-        {
-            adapter = aa
-            setSelection(0, false)
-            onItemSelectedListener = this@FilterWeathers
-            prompt = "Select your city"
-            setPopupBackgroundResource(R.color.material_grey_600)
-
-        }
+        citiesSpinner.adapter = aa
+        citiesSpinner.setSelection(0, false)
+        citiesSpinner.onItemSelectedListener = this@FilterWeathers
+        citiesSpinner.prompt = "Select your city"
+        citiesSpinner.setPopupBackgroundResource(R.color.material_grey_600)
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
-        showToast(message = "Nothing selected")
+
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -86,7 +82,4 @@ class FilterWeathers : Fragment() , AdapterView.OnItemSelectedListener{
         MyApplication.getInstance().mCity = mCities.get(position);
     }
 
-    private fun showToast(context: Context = activity!!.baseContext, message: String, duration: Int = Toast.LENGTH_LONG) {
-        Toast.makeText(context, message, duration).show()
-    }
 }
