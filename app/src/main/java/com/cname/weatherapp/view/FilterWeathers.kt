@@ -10,6 +10,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -25,6 +26,8 @@ class FilterWeathers : Fragment() , AdapterView.OnItemSelectedListener{
 
     var mFilterWeathersViewModel: FilterWeathersViewModel? = null
     var mCityInfoList = arrayOf<String>();
+    var mCities: List<City> = arrayListOf<City>()
+
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -38,15 +41,16 @@ class FilterWeathers : Fragment() , AdapterView.OnItemSelectedListener{
 
         init();
 
-       /* view.findViewById<Button>(R.id.button_first).setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }*/
+        view.findViewById<Button>(R.id.goToWeatherDetailsBtn).setOnClickListener {
+            findNavController().navigate(R.id.action_FilterWeathersFragment_to_WeatherDetailsFragment)
+        }
     }
 
     fun init(){
         mFilterWeathersViewModel = ViewModelProvider(this)[FilterWeathersViewModel::class.java]
         mFilterWeathersViewModel!!.mCities.observe(this, Observer { cities ->
 
+            mCities = cities;
             setAdapter(cities);
         })
     }
@@ -79,12 +83,7 @@ class FilterWeathers : Fragment() , AdapterView.OnItemSelectedListener{
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
-        when (view?.id) {
-            1 -> showToast(message = "Spinner 2 Position:${position} and language: ${mCityInfoList[position]}")
-            else -> {
-                showToast(message = "Spinner 1 Position:${position} and language: ${mCityInfoList[position]}")
-            }
-        }
+        MyApplication.getInstance().mCity = mCities.get(position);
     }
 
     private fun showToast(context: Context = activity!!.baseContext, message: String, duration: Int = Toast.LENGTH_LONG) {

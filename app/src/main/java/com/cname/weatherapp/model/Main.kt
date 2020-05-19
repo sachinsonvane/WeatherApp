@@ -1,5 +1,5 @@
 package com.cname.weatherapp.model
 
-class Main(val temp:Double,val temp_min:Double,val temp_max:Double,val pressure:Double,
-           val sea_level:Double,val grnd_level:Double,val humidity:Double,val temp_kf:Double) {
+class Main(val temp:String,val temp_min:String,val temp_max:String,val pressure:String,
+           val sea_level:String,val grnd_level:String,val humidity:String,val temp_kf:String) {
 }

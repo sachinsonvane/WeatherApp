@@ -1,4 +1,4 @@
 package com.cname.weatherapp.model
 
-class Clouds(val all:Long) {
+class Clouds(val all:String) {
 }

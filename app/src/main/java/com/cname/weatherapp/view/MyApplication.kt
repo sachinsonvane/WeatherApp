@@ -5,18 +5,19 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import com.cname.weatherapp.model.City
 
 class MyApplication : Application() {
 
-    val BASE_URL = "";
+    val BASE_URL = "https://samples.openweathermap.org/data/2.5/forecast?";
+    var API = "439d4b804bc8187953eb36d2a8c26a02"
     val PRIVATE_MODE = 0
     val PREF_TITLE = "title"
-    val PREF_DESCRIPTION = "description"
-    val PREF_IMG_PATH = "imgpath"
-    val PREF_PAGE_TITLE = "page_title"
+
     val PREF_ALL_RES_DATA = "all_res_data"
 
     val TIMEOUT = 7000
+    var mCity:City? = null
 
     init {
         instance = this
