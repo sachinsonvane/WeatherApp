@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.fragment_first.*
 class FilterWeathers : Fragment() , AdapterView.OnItemSelectedListener{
 
     var mFilterWeathersViewModel: FilterWeathersViewModel? = null
-    var mCityInfoList = ArrayList()
+    var mCityInfoList = ArrayList<String>();
     var mCities: List<City> = arrayListOf<City>()
 
     override fun onCreateView(
@@ -57,16 +57,9 @@ class FilterWeathers : Fragment() , AdapterView.OnItemSelectedListener{
 
     fun setAdapter(cList:List<City>){
 
+        val cityListAdapter = CityListAdapter(MyApplication.getInstance().baseContext, cList)
+        citiesSpinner.adapter = cityListAdapter
 
-        var size:Int = cList.size
-        for (i in 0.. size-1) {
-            var cityObj = cList.get(i)
-            mCityInfoList.add(cityObj.name+","+cityObj.state+","+cityObj.country)
-        }
-
-        var aa = ArrayAdapter(activity!!.baseContext, android.R.layout.simple_spinner_item, mCityInfoList)
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        citiesSpinner.adapter = aa
         citiesSpinner.setSelection(0, false)
         citiesSpinner.onItemSelectedListener = this@FilterWeathers
         citiesSpinner.prompt = "Select your city"
@@ -80,6 +73,9 @@ class FilterWeathers : Fragment() , AdapterView.OnItemSelectedListener{
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
         MyApplication.getInstance().mCity = mCities.get(position);
+       // print("city id "+MyApplication.getInstance().mCity.id);
     }
+
+
 
 }

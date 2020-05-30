@@ -9,7 +9,7 @@ import com.cname.weatherapp.model.City
 
 class MyApplication : Application() {
 
-    val BASE_URL = "https://samples.openweathermap.org/data/2.5/forecast?";
+    val BASE_URL = "https://samples.openweathermap.org/data/2.5/forecast";
     var API = "439d4b804bc8187953eb36d2a8c26a02"
     val PRIVATE_MODE = 0
     val PREF_TITLE = "title"

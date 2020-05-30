@@ -29,9 +29,11 @@ class FilterWeathersViewModel : ViewModel() {
 
             withContext(Dispatchers.Main) {
 
-                val cData: JSONObject = JSONObject(getAssetJsonData(MyApplication.getInstance().applicationContext))
-                var cArr = JSONArray(cData);
-                var list:ArrayList<City> = ArrayList()
+                var preData = getAssetJsonData(MyApplication.getInstance().applicationContext) as String
+               // val cData: JSONObject = JSONObject(preData);
+                //print("preData "+preData);
+                var cArr = JSONArray(preData);
+                var list = ArrayList<City>();
                 var size:Int = cArr.length()
                 for (i in 0.. size-1) {
                     var item: JSONObject = cArr.getJSONObject(i)
@@ -41,7 +43,7 @@ class FilterWeathersViewModel : ViewModel() {
 
                     list.add(
                         City(
-                            item.getLong("id"),
+                            item.getInt("id").toString(),
                             item.getString("name"),
                             item.getString("state"),
                             item.getString("country"), Coord(lon,lat)
@@ -68,7 +70,7 @@ class FilterWeathersViewModel : ViewModel() {
             return null
         }
         // print the data
-        Log.i("data", json)
+       // Log.i("data", json)
         return json
     }
 }

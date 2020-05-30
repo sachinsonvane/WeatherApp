@@ -18,11 +18,12 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/citiesSpinner"
-                android:layout_width="match_parent"
-                android:spinnerMode="dropdown"
-                android:layout_height="wrap_content" />
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:id="@+id/citiesSpinner"/>
+
 
             <Button
                 android:id="@+id/goToWeatherDetailsBtn"

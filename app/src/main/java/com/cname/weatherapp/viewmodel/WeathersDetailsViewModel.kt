@@ -25,7 +25,10 @@ class WeathersDetailsViewModel: ViewModel()  {
         mWeathersCoroutineScope.launch {
 
             var url = MyApplication.getInstance().BASE_URL+"?id="+MyApplication.getInstance().mCity!!.id.toString()+"&appid="+MyApplication.getInstance().API
+            //var url = MyApplication.getInstance().BASE_URL;
+
             var resData = HttpRestApi.createCorService().httpGet(url)
+
 
             withContext(Dispatchers.Main) {
 
@@ -35,7 +38,7 @@ class WeathersDetailsViewModel: ViewModel()  {
                 val city = wdata.getJSONObject("city")
                 val cName = city.getString("name")
                 val cCountry = city.getString("country")
-                val cId = city.getLong("id")
+                val cId = city.getInt("id").toString();
                 val coord: JSONObject = city.getJSONObject("coord")
                 var cityObj:City = City(cId,cName,"",cCountry, Coord(coord.getString("lon"),coord.getString("lat")))
 
@@ -48,10 +51,10 @@ class WeathersDetailsViewModel: ViewModel()  {
                     val sys: JSONObject = jsonObj.getJSONObject("sys")
                     val wind: JSONObject = jsonObj.getJSONObject("wind")
                     val weather: JSONObject = jsonObj.getJSONArray("weather").getJSONObject(0)
-                    val wId:String = main.getString("id")
-                    val wMain:String = main.getString("main")
-                    val wDescription:String = main.getString("description")
-                    val wIcon:String = main.getString("icon")
+                    val wId:String = weather.getInt("id").toString()
+                    val wMain:String = weather.getString("main")
+                    val wDescription:String = weather.getString("description")
+                    val wIcon:String = weather.getString("icon")
 
                     val clouds = jsonObj.getJSONObject("clouds")
                     val cAll = clouds.getString("all")
@@ -62,7 +65,7 @@ class WeathersDetailsViewModel: ViewModel()  {
                             Locale.ENGLISH
                         ).format(
                             Date(updatedAt * 1000)
-                        )
+                        );
                     val temp = main.getString("temp")
                     val tempMin = main.getString("temp_min")
                     val tempMax = main.getString("temp_max")

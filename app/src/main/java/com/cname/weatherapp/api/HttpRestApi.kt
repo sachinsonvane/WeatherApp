@@ -13,10 +13,11 @@ class HttpRestApi {
 
     var CITY = "dhaka,bd"
     var API = "8118ed6ee68db2debfaaa5a44c832918"
-// String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
-//
-    //https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API
 
+    // String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
+//
+    //https://api.openweathermap.org/data/2.5/weather?q=india&units=metric&appid=8118ed6ee68db2debfaaa5a44c832918
+//https://samples.openweathermap.org/data/2.5/forecast?id=524901&appid=439d4b804bc8187953eb36d2a8c26a02
     companion object {
 
         fun createCorService(): HttpRestApi {
@@ -25,10 +26,10 @@ class HttpRestApi {
         }
     }
 
-    fun httpGet(urlStr:String): String {
+    fun httpGet(urlStr: String): String {
 
         val inputStream: InputStream
-        var result:String = ""
+        var result: String = ""
 
         // create URL
         val url: URL = URL(urlStr)
@@ -48,18 +49,24 @@ class HttpRestApi {
             conn.connect()
             if (conn.responseCode == HttpURLConnection.HTTP_OK) {
                 inputStream = conn.inputStream
-                if(inputStream != null) {
+                if (inputStream != null) {
                     val stream = BufferedInputStream(inputStream)
                     result = readStream(stream)
-                    if(result!=null && !result.equals("")){
+                    if (result != null && !result.equals("")) {
                         val context = MyApplication.getInstance().applicationContext;
                         val sharedPrefAllResData: SharedPreferences =
-                            context.getSharedPreferences(MyApplication.getInstance().PREF_ALL_RES_DATA, MyApplication.getInstance().PRIVATE_MODE)
+                            context.getSharedPreferences(
+                                MyApplication.getInstance().PREF_ALL_RES_DATA,
+                                MyApplication.getInstance().PRIVATE_MODE
+                            )
                         val editorAllResData = sharedPrefAllResData.edit()
-                        editorAllResData.putString(MyApplication.getInstance().PREF_ALL_RES_DATA, result)
+                        editorAllResData.putString(
+                            MyApplication.getInstance().PREF_ALL_RES_DATA,
+                            result
+                        )
                         editorAllResData.apply()
                     }
-                }else {
+                } else {
                     result = ""
                 }
             } else {
@@ -72,6 +79,7 @@ class HttpRestApi {
         }
         return result
     }
+
     fun readStream(inputStream: BufferedInputStream): String {
         val bufferedReader = BufferedReader(InputStreamReader(inputStream))
         val stringBuilder = StringBuilder()

@@ -7,6 +7,9 @@
     android:background="@drawable/bg_gradient"
     tools:context="com.cname.weatherapp.view.WeatherDetails">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout android:id="@+id/mainContainer" android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent" android:visibility="visible">
@@ -17,11 +20,11 @@
             <TextView android:id="@+id/addressTxt" android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:textSize="24dp"
                 android:textColor="@color/weatherDetailsTxtColor"
-                android:text="PUNE, ID"/>
+                android:text=""/>
             <TextView android:id="@+id/updatedAtTxt" android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:textSize="14dp"
                 android:textColor="@color/weatherDetailsTxtColor"
-                android:text="20 April 2012, 20:08 PM"/>
+                android:text=""/>
         </LinearLayout>
 
 
@@ -32,23 +35,23 @@
                 android:layout_height="wrap_content" android:textSize="18dp"
                 android:layout_gravity="center"
                 android:textColor="@color/weatherDetailsTxtColor"
-                android:text="Clear Sky"/>
+                android:text=""/>
             <TextView android:id="@+id/tempTxt" android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:textSize="90dp"
                 android:fontFamily="sans-serif-thin" android:layout_gravity="center"
                 android:textColor="@color/weatherDetailsTxtColor"
-                android:text="29°C"/>
+                android:text=""/>
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:gravity="center">
                 <TextView android:id="@+id/tempMinTxt" android:layout_width="wrap_content"
                     android:textColor="@color/weatherDetailsTxtColor"
-                    android:layout_height="wrap_content" android:text="Min Temp: 05:05 AM"/>
+                    android:layout_height="wrap_content" android:text=""/>
                 <Space android:layout_width="50dp" android:layout_height="wrap_content"/>
 
                 <TextView android:id="@+id/tempMaxTxt" android:layout_width="wrap_content"
                     android:textColor="@color/weatherDetailsTxtColor"
-                    android:layout_height="wrap_content" android:text="Max Temp: 05:05 PM"/>
+                    android:layout_height="wrap_content" android:text=""/>
             </LinearLayout>
 
         </LinearLayout>
@@ -72,7 +75,8 @@
                     android:textSize="12dp" android:text="Pressure"/>
                 <TextView android:id="@+id/pressureTxt" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:textSize="14dp"
-                    android:text="06:40 AM"/>
+                    android:textColor="@color/weatherDetailsTxtColor"
+                    android:text=""/>
             </LinearLayout>
             <Space android:layout_width="10dp" android:layout_height="wrap_content"/>
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
@@ -87,7 +91,8 @@
                     android:textSize="12dp" android:text="Wind"/>
                 <TextView android:id="@+id/windTxt" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:textSize="14dp"
-                    android:text="06:40 AM"/>
+                    android:textColor="@color/weatherDetailsTxtColor"
+                    android:text=""/>
             </LinearLayout>
             <Space android:layout_width="10dp" android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -110,7 +115,8 @@
                     android:textSize="12dp" android:text="Humidity"/>
                 <TextView android:id="@+id/humidityTxt" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:textSize="14dp"
-                    android:text="06:40 AM"/>
+                    android:textColor="@color/weatherDetailsTxtColor"
+                    android:text=""/>
             </LinearLayout>
             <Space android:layout_width="10dp" android:layout_height="wrap_content"/>
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
@@ -125,6 +131,7 @@
                     android:textSize="12dp" android:text="Show"/>
                 <TextView android:id="@+id/about" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:textSize="14dp"
+                    android:textColor="@color/weatherDetailsTxtColor"
                     android:text="More"/>
             </LinearLayout>
             <Space android:layout_width="10dp" android:layout_height="wrap_content"/>
@@ -149,18 +156,18 @@
                     <TextView android:id="@+id/secondAtTxt" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:textSize="14dp"
                         android:textColor="@color/weatherDetailsTxtColor"
-                        android:text="20 April 2012, 20:08 PM"/>
+                        android:text=""/>
 
                     <TextView android:id="@+id/secondStatusTxt" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:textSize="18dp"
                         android:layout_gravity="center"
                         android:textColor="@color/weatherDetailsTxtColor"
-                        android:text="Clear Sky"/>
+                        android:text=""/>
                     <TextView android:id="@+id/secondTtempTxt" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:textSize="30dp"
                         android:fontFamily="sans-serif-thin" android:layout_gravity="center"
                         android:textColor="@color/weatherDetailsTxtColor"
-                        android:text="29°C"/>
+                        android:text=""/>
 
                 </LinearLayout>
                 <Space android:layout_width="10dp" android:layout_height="wrap_content"/>
@@ -172,18 +179,18 @@
                     <TextView android:id="@+id/thirdAtTxt" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:textSize="14dp"
                         android:textColor="@color/weatherDetailsTxtColor"
-                        android:text="20 April 2012, 20:08 PM"/>
+                        android:text=""/>
 
                     <TextView android:id="@+id/thirdStatusTxt" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:textSize="18dp"
                         android:layout_gravity="center"
                         android:textColor="@color/weatherDetailsTxtColor"
-                        android:text="Clear Sky"/>
+                        android:text=""/>
                     <TextView android:id="@+id/thirdTtempTxt" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:textSize="30dp"
                         android:fontFamily="sans-serif-thin" android:layout_gravity="center"
                         android:textColor="@color/weatherDetailsTxtColor"
-                        android:text="29°C"/>
+                        android:text=""/>
 
                 </LinearLayout>
                 <Space android:layout_width="10dp" android:layout_height="wrap_content"/>
@@ -203,18 +210,18 @@
                     <TextView android:id="@+id/fourAtTxt" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:textSize="14dp"
                         android:textColor="@color/weatherDetailsTxtColor"
-                        android:text="20 April 2012, 20:08 PM"/>
+                        android:text=""/>
 
                     <TextView android:id="@+id/fourStatusTxt" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:textSize="18dp"
                         android:layout_gravity="center"
                         android:textColor="@color/weatherDetailsTxtColor"
-                        android:text="Clear Sky"/>
+                        android:text=""/>
                     <TextView android:id="@+id/fourTtempTxt" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:textSize="30dp"
                         android:fontFamily="sans-serif-thin" android:layout_gravity="center"
                         android:textColor="@color/weatherDetailsTxtColor"
-                        android:text="29°C"/>
+                        android:text=""/>
 
                 </LinearLayout>
                 <Space android:layout_width="10dp" android:layout_height="wrap_content"/>
@@ -226,18 +233,18 @@
                     <TextView android:id="@+id/fifthAtTxt" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:textSize="14dp"
                         android:textColor="@color/weatherDetailsTxtColor"
-                        android:text="20 April 2012, 20:08 PM"/>
+                        android:text=""/>
 
                     <TextView android:id="@+id/fifthStatusTxt" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:textSize="18dp"
                         android:layout_gravity="center"
                         android:textColor="@color/weatherDetailsTxtColor"
-                        android:text="Clear Sky"/>
+                        android:text=""/>
                     <TextView android:id="@+id/fifthTtempTxt" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:textSize="30dp"
                         android:fontFamily="sans-serif-thin" android:layout_gravity="center"
                         android:textColor="@color/weatherDetailsTxtColor"
-                        android:text="29°C"/>
+                        android:text=""/>
 
 
                 </LinearLayout>
@@ -246,5 +253,5 @@
             <Space android:layout_width="wrap_content" android:layout_height="10dp"/>
         </LinearLayout>
     </LinearLayout>
-
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
