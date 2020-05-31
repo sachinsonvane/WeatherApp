@@ -2,6 +2,14 @@
 
 buildscript {
     ext.kotlin_version = '1.3.61'
+    ext.coreVersion = '1.3.0-beta02'
+    ext.extJUnitVersion = '1.1.2-beta02'
+
+    ext.androidxLibVersion = "1.0.0"
+    ext.robolectricVersion = "4.3.1"
+    ext.extTruthVersion = '1.3.0-alpha02'
+    ext.runnerVersion = "1.3.0-beta02"
+
     repositories {
         google()
         jcenter()
