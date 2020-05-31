@@ -5,7 +5,7 @@
     Livedata, ViewModel, lifecycle etc.
     Using MVVM design pattern.
 
-    WeatherApp app contain some following feathers.
+    WeatherApp app contain some following features.
     FilterWeathers page shown display list of city for get 5 day forrest weather.
     When user select city and submit button then go next WeatherDetails page,
     there display selected city of 5 days weather information.
